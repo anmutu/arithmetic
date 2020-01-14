@@ -30,3 +30,38 @@ def valid(x, y):
         if x + y - i <= 7:
             if chessboard[i][x - y - i] == 1:
                 return False
+    # 第四步，判断“\"方向是否有皇后
+    for index, i in enumerate(range(x - 1, -1, -1)):
+        q_y = y - (index + 1)
+        if q_y >= 0:
+            if chessboard[i][q_y] == 1:
+                return False
+    return True
+
+
+def print_chessboard():
+    for i in range(8):
+        for j in range(8):
+            if chessboard[i][j] == 0:
+                print("q ", end=" ")
+            else:
+                print("* ", end=" ")
+        return print()
+
+
+
+def put_queen(step):
+    if step == 8:
+        print_chessboard()
+        print("~~~~~~~~~~~~~~~~~~~~~~~")
+        return
+    for i in range(8):
+        if valid(step, i):
+            chessboard[step][i] == 1
+            put_queen(step + 1)
+            chessboard[step][i] == 0
+
+
+if __name__ == "__main__":
+    print_chessboard()
+    # put_queen(0)
