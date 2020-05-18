@@ -6,19 +6,21 @@ __date__ = '2020/1/6 2:01'
 from collections import defaultdict
 from datetime import datetime
 
+
+# 效率最高的其实就是这个记忆搜索法。
+
 total = defaultdict(int)
 total_memory = defaultdict(int)
 
 
-
-def fib_recusion(k):
+def fib_recursion(k):
     assert k > 0, "k的值必须大于0"
     if k in [1, 2]:
         return 1
     else:
         global total
         total[k] += 1
-        return fib_recusion(k - 2) + fib_recusion(k - 1)
+        return fib_recursion(k - 2) + fib_recursion(k - 1)
 
 
 # 将值存到total里,在递归前判断是否在这个total里,如果在就取total里的值,如果不在就将新值存到total里.
@@ -37,7 +39,10 @@ def fib_recursion_memory(k):
 
 if __name__ == "__main__":
     start_time = datetime.now()
-    print("普通递归方式。第{0}位的数的值是{1},此次递归耗时{2}".format(35, fib_recusion(35), (datetime.now()-start_time).total_seconds()))
+    print("普通递归方式。第{0}位的数的值是{1},此次递归耗时{2}".format(35, fib_recursion(35), (datetime.now()-start_time).total_seconds()))
+    print("递归的次数也是一个斐波拉契数列,比如你看:{0}".format(total))
+
     start_time_memory = datetime.now()
     print("采用记忆搜索的递归方式。第{0}位的数的值是{1},递归耗时{2}".format(35, fib_recursion_memory(35), (datetime.now()-start_time_memory).total_seconds()))
-    print("递归的次数也是一个斐波拉契数列,比如你看:{0}".format(total))
+    print("递归的次数也是一个斐波拉契数列,比如你看:{0}".format(total_memory))
+

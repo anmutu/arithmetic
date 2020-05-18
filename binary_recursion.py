@@ -31,7 +31,7 @@ def random_list(start, end, len):
 
 if __name__ == "__main__":
     data = random_list(1, 100, 10)
-    data=sorted(data)
+    data = sorted(data)
     index = random.randint(0, len(data)-1)
     pos = binary_recursion(0, len(data) - 1, data, data[index])
     print("目标值是{0}\n".format(data[index]))
