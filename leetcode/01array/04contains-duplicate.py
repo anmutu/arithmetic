@@ -22,6 +22,9 @@ def is_contains_duplicate(nums):
 
 
 def is_contains_duplicate1(nums):
+    """
+    思路就是第i个元素是否in在i后面的元素里。
+    """
     for i in range(len(nums)-1):  # 注意这里的边界，好好是-1
         if nums[i] in nums[i+1:]:  # 也要注意这里的边界，最开始就忘了+1，测试出来了
             return False
@@ -29,6 +32,9 @@ def is_contains_duplicate1(nums):
 
 
 def is_contains_duplicate2(nums):
+    """
+    sort之后 就比较相邻的两个是否相同了
+    """
     nums.sort()
     for i in range(len(nums)-1):
         if nums[i] == nums[i+1]:

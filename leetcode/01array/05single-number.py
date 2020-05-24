@@ -23,14 +23,17 @@ def single_number(nums):
     i = 0
     while i < length-2:
         if nums[i] == nums[i+1]:
-            i += 2
+            i += 2  # 这里是两个两个比较，所以这里要加+2.
         else:
             return nums[i]
     return nums[-1]
 
 
 def single_number1(nums):
-    """排序后，找出偶数和奇数的set,让他们相减，然后取list的第一个就好"""
+    """
+    排序后，找出偶数和奇数的set,让他们相减，然后取list的第一个就好
+    注意nums[::2]这样的写法。表示从下标0开始2个2个的往后取值。
+    """
     # nums.sort()
     # set1 = set(nums[::2])
     # set2 = set(nums[1::2])

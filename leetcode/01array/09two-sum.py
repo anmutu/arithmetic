@@ -37,6 +37,13 @@ def two_sum(nums, target):
                 return [i, j]
 
 
+def two_sum1(nums, target):
+    for i in range(len(nums)-1):
+        if target - nums[i]  in nums[i+1:]:
+            j = nums[i+1:].index(target - nums[i])
+            return [i, i +j+1]
+
+
 if __name__ == "__main__":
     print("错误的求法：")
     nums = [2, 7, 11, 15]
@@ -44,7 +51,11 @@ if __name__ == "__main__":
     res = two_sum_wrong(nums, target)
     print(res)
 
-    print("正确的求法：")
+    print("正确的求法1：")
     res1 = two_sum(nums, target)
     print(res1)
+
+    print("正确的求法2：")
+    res2 = two_sum(nums, target)
+    print(res2)
 

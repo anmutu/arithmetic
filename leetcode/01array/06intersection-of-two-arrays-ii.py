@@ -16,9 +16,9 @@ __date__ = '2020/5/18 21:44'
 def intersect(nums1, nums2):
     """
     就是两组数排序后
-    用第一组的第一个数分别去比第二组 数的第一个
-    谁小则谁的位置往后移动一位，再去做比较。
-    如果两个数一样大，那么就需要将这个数加入到我们的结果集中，且两组要比较的数都往后移一位。
+    用第一组的第一个数分别去比第二组数的第一个
+    1.谁小则谁的位置往后移动一位，再去做比较。
+    2.如果两个数一样大，那么就需要将这个数加入到我们的结果集中，且两组要比较的数都往后移一位。
     """
     nums1.sort()
     nums2.sort()
@@ -39,6 +39,7 @@ def intersect(nums1, nums2):
 
 def intersect1(nums1, nums2):
     """
+    有点类似于”删除追加法“
      这种情况是适用于nums1和nums2的长度相差很多。
      我们用较短的nums里的每个元素和长的nums去做比较。
      如果较长的里面有，则将这个元素加入到我们的结果集
@@ -50,7 +51,7 @@ def intersect1(nums1, nums2):
     r_list = []
     if len(nums1) > len(nums2):
         nums1, nums2 = nums2, nums1
-    for n in nums1: # 这里用 for ... in ...
+    for n in nums1:  # 这里用 for ... in ...
         if n in nums2:
             r_list.append(n)
             nums2.remove(n)
