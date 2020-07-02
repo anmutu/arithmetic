@@ -22,7 +22,7 @@ def two_sum_wrong(nums, target):
                 return [i, j]
 
 
-def two_sum(nums, target):
+def two_sum(nums,  target):
     """
     遍历2次此数组。
     第一次range取所有。
@@ -35,6 +35,7 @@ def two_sum(nums, target):
         for j in range(i+1, len(nums)):  # 这里不能range(len(nums))，
             if nums[i] + nums[j] == target:
                 return [i, j]
+
 
 
 def two_sum1(nums, target):
