@@ -34,7 +34,7 @@ def longest_common_prefix(strs):
             common_word = []
         else:
             return strs[0][0:i]
-    return 
+    return
 
 
 if __name__ == "__main__":

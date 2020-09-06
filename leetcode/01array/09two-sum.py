@@ -37,7 +37,6 @@ def two_sum(nums,  target):
                 return [i, j]
 
 
-
 def two_sum1(nums, target):
     for i in range(len(nums)-1):
         if target - nums[i]  in nums[i+1:]:

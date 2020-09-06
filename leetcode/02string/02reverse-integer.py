@@ -23,13 +23,13 @@ def reverse(x):
     字符串解法代码：
     先将数字类型的x转换成列表
     然后后切片方式拿到想要的结果
-    要特别注意：切片的使用。
+    要特别注意：切片的使用。r_list[1:][::-1]。
     """
-    r_list = list(str(x))
+    r_list = list(str(x))   # 转换成list
     if r_list[0] == "-":
-        num = int(''.join(r_list[1:][::-1])) * (-1)
+        num = int(''.join(r_list[1:][::-1])) * (-1)  # 从下标为1的开始反转，然后*-1
     else:
-        num = int(''.join(r_list[::-1]))
+        num = int(''.join(r_list[::-1]))   # 是正数就从下标为0的开始反转就好
 
     if num in range(pow(2, 31)*(-1), pow(2, 31)-1):
         return num

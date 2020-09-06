@@ -29,7 +29,28 @@ print("思路代码.用倒数第二层与它的上一层组合和到最大的值
 for i in range(2, 1, -1):
     for j in range(i):
         pyramid[i-1][j] += max(pyramid[i][j], pyramid[i][j+1])
+        print(pyramid)
 print("新的金字塔是{0},其最后的值是{1}".format(pyramid, pyramid[0][0]))
+
+
+def search(depth):
+
+    pyramid = [
+        [1],
+        [2, 3],
+        [4, 5, 6]
+    ]
+
+    while depth >= 1:
+        for row in range(0, depth):
+            pyramid[depth - 1][row] += max(pyramid[depth][row], pyramid[depth][row+1])
+        print(pyramid[j])
+        depth -= 1
+
+
+if __name__ == "__main__":
+    search(2)
+
 
 
 
